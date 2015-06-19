@@ -1,0 +1,36 @@
+{
+  "name": "lodash-superstring",
+  "version": "0.0.1",
+  "description": "Lodash mixins for advanced string parsing",
+  "main": "lodash-superstring.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andfaulkner/lodash-superstring.git"
+  },
+  "keywords": [
+    "lodash",
+    "mixin",
+    "mixins",
+    "string",
+    "parsing",
+    "parse",
+    "array",
+    "url",
+    "utility",
+    "toolbox",
+    "helper",
+    "underscore"
+  ],
+  "author": "Andrew Faulkner <andfaulkner@gmail.com>",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/andfaulkner/lodash-superstring/issues"
+  },
+  "homepage": "https://github.com/andfaulkner/lodash-superstring",
+  "dependencies": {
+    "lodash": "^3.9.3"
+  }
+}
