@@ -207,7 +207,11 @@
          * @returns {String|Array} unescaped string or array of strings
          */
         unescape: function(coll){
-            return (unescape(coll));
+            if (typeof decodeURI !== undefined) {
+                return (decodeURI(coll));
+            } else {
+                return (unescape(coll));
+            }
         },
 
 
