@@ -45,9 +45,15 @@ Swap items in an array, between 2 given indices
 
 
 ###rmEndAmpersand(collection)
+Convenience function to remove an ampersand from the end of a string, or from the last item in an array.
+{CHAINABLE}
+* collection: {Array|String}
 
 
 ###rmEndSemicolon(collection)
+Convenience function to remove an ampersand from the end of a string, or from the last item in an array.
+{CHAINABLE}
+* collection: {Array|String}
 
 
 ###rmMatchPrependStr(array, matcher, itemToInsert)
