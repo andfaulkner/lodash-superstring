@@ -123,10 +123,10 @@
             });
 
 	        it("should have the superstring functions mixed into it", function() {
-	            var l_ssFns = ["replaceStrOnMatch", "convertTextToURI", "swapByIndex",
-	            	"unshift", "moveToIndex",
-	                "rmEndStrOnMatchEach", "rmEndCharOnMatchEach", "rmEndAmpersand",
-	                "rmEndSemicolon", "unescape", "unshiftRmMatchedItemOnMatch"
+	            var l_ssFns = ["replaceStrOnMatch", "convertTextToURI",
+	            	"moveToIndex", "swapByIndex", "rmEndStrOnMatchEach",
+	                "rmEndCharOnMatchEach", "rmEndAmpersand", "rmEndSemicolon",
+	                "unescape", "unshift", "unshiftRmMatchedItemOnMatch"
 	            ];
 	            checkObjProperties(_, l_ssFns, "function");
 	            expect(typeof _.convertTextToURI).toBe('function');
@@ -141,7 +141,7 @@
     /************* FUNCTION TESTS: Does each function work as expected? ***************/
     describe("lodash-superstring: _.moveToIndex", function() {
 
-        it("should move an array item at one given index to another", function() {
+        it("should move an array item for 1st given index to 2nd given index", function() {
             expect(_.moveToIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 2, 5, true))
             		.toEqual(['i0', 'i1', 'i3', 'i4', 'i5', 'i2']);
             expect(_.moveToIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 0, 2, true))
@@ -150,7 +150,7 @@
             		.toEqual(['i1', 'i2', 'i3', 'i4', 'i5', 'i0']);
         });
 
-        it("should move a character in a string from one given index to another", function() {
+        it("should move a char in a string from 1st given index to 2nd given index", function() {
             expect(_.moveToIndex("myTestString", 2, 5, true))
             		.toEqual("myestTString");
             expect(_.moveToIndex("myTestString", 0, 9, true))
@@ -158,9 +158,58 @@
             expect(_.moveToIndex("0123456789", 5, 8, true))
             		.toEqual("0123467859");
         });
-       	//STILL IN PROGRESS - NEEDS EDGE CASES
+       	//TODO: EDGE CASES
 
     });
+
+    describe("lodash-superstring: _.swapByIndex", function() {
+        it("should swap array items at 2 given indices with each other", function() {
+            expect(_.swapByIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 2, 5, true))
+            		.toEqual(['i0', 'i1', 'i5', 'i3', 'i4', 'i2']);
+            expect(_.swapByIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 0, 2, true))
+            		.toEqual(['i2', 'i1', 'i0', 'i3', 'i4', 'i5']);
+            expect(_.swapByIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 0, 5, true))
+            		.toEqual(['i5', 'i1', 'i2', 'i3', 'i4', 'i0']);
+        });
+       	//TODO: EDGE CASES
+
+	});
+
+    describe("lodash-superstring: _.replaceStrOnMatch", function() {
+    	//TODO: set up tests
+	});
+
+    describe("lodash-superstring: _.convertTextToURI", function() {
+    	//TODO: set up tests
+	});
+
+    describe("lodash-superstring: _.rmEndStrOnMatchEach", function() {
+    	//TODO: set up tests
+	});
+
+    describe("lodash-superstring: _.rmEndCharOnMatchEach", function() {
+    	//TODO: set up tests
+	});
+
+    describe("lodash-superstring: _.rmEndAmpersand", function() {
+    	//TODO: set up tests
+	});
+
+    describe("lodash-superstring: _.rmEndSemicolon", function() {
+    	//TODO: set up tests
+	});
+
+    describe("lodash-superstring: _.unescape", function() {
+    	//TODO: set up tests
+	});
+
+    describe("lodash-superstring: _.unshift", function() {
+    	//TODO: set up tests
+	});
+
+    describe("lodash-superstring: _.unshiftRmMatchedItemOnMatch", function() {
+    	//TODO: set up tests
+	});
 
 	//STILL IN PROGRESS
 

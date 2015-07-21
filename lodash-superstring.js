@@ -89,8 +89,12 @@
          * @returns {Array} collection with the item moved to its new index
          */
         swapByIndex: function (arr, fromIndex, toIndex) {
+            var item1, item2;
             if (_.isArray(arr)) {
-                arr.splice(toIndex, 0, arr.splice(fromIndex, 1)[0] );
+                item1 = arr[fromIndex];
+                item2 = arr[toIndex];
+                arr[fromIndex] = item2;
+                arr[toIndex] = item1;
             }
             return arr;
         },
