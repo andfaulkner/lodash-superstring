@@ -9,7 +9,7 @@
 /**
  * UMD exporter
  */
-var _ = (function (root, factory) {
+(function (root, factory) {
    'use strict';
 
    var lodash = lodash || _ || {};
