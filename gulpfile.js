@@ -8,3 +8,7 @@ gulp.task("minify", function(){
         .pipe(rename("lodash-superstring.min.js"))
         .pipe(gulp.dest("./"));
 });
+
+gulp.task("watch", function(){
+
+})

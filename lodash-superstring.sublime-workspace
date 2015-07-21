@@ -1,0 +1,452 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"encodreU",
+				"encodeURIComponent(${0:URI})	Window"
+			],
+			[
+				"createRead",
+				"fs.createReadStream"
+			],
+			[
+				"createServ",
+				"http.createServer"
+			],
+			[
+				"__",
+				"__dirname"
+			],
+			[
+				"create",
+				"http.createServer"
+			],
+			[
+				"argv",
+				"process.argv"
+			],
+			[
+				"createServer",
+				"net.createServer"
+			],
+			[
+				"env",
+				"process.env"
+			],
+			[
+				"exec",
+				"child_process.exec"
+			],
+			[
+				"lstat",
+				"fs.lstat"
+			],
+			[
+				"dir",
+				"fs.readdir"
+			],
+			[
+				"if",
+				"ifElse"
+			],
+			[
+				"obj",
+				"objToStr"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 327.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: no_p"
+			],
+			[
+				"Snippet",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"Package Control",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: In",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 476.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/websockets/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/http-client/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/http-server/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/concat/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/concat/untitled",
+		"/home/andfaulkner/Projects/hapi/hapi-test-1/server.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/lines/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/http-json-api-server/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/meet-pipe/program.js",
+		"/home/andfaulkner/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/andfaulkner/Projects/cordova/gulp-display-help/gulpfile.js",
+		"/home/andfaulkner/.config/sublime-text-3/Packages/User/snippets/REGEX_p_dot_with_no_char_before.sublime-snippet",
+		"/home/andfaulkner/.config/sublime-text-3/Packages/User/snippets/no_p.sublime-snippet",
+		"/home/andfaulkner/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/andfaulkner/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/andfaulkner/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/andfaulkner/.config/sublime-text-3/Packages/User/JsFormat.sublime-settings",
+		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/transform/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/input-output/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/http-uppercaserer/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/http-file-server/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/time-server/program.js",
+		"/home/andfaulkner/Projects/cordova/learnnode/juggling-async/program.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/gulpfile.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/doc/gulpfile-promises-attempt-backup.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/test/caspertest.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/test/casper-modules/shims-patches.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/mediator.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/doc/Regex/eclipseSearches.txt",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/acw/acw__button-overrides.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/index.html",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/device/device__back-button.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/acw/configDOMInsert/acw__config-dom-insert--insert_body.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/acw/configDOMInsert/acw__config-dom-insert--default.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/util/util__debug.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/acw/acw__dom-insert-pipeline.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/util/util__main.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/page/page__login.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/acw/configDOMInsert/acw__config-dom-insert--calendar.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/html/mock__calendar-CMS.html",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/router/router__files.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/component/component__navdrawer.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/acw/configDOMInsert/acw__config-dom-insert--login.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/acw/configDOMInsert/acw__config-dom-insert--insert_data.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/webpack.base.config.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/app-entry.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/router/router__main.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/init/init__external-libs.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/init/init__db.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/device/device__wifi.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/device/device__entry.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/device/device__camera.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/component/component__topbar.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/component/component__footer.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/router/router__viewhandler.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/filetree.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/page/page__serverlist.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/device/device__notifications.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/web_modules/js/component/component__spinner.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/tasks/gulp/help.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/tasks/gulp/backup.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/tasks/gulp/copy-static-assets.js",
+		"/home/andfaulkner/Projects/cordova/CMSMobile/test/casper-modules/shims-patches-utils.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"web_modules/js/**",
+			"web_modules/**",
+			"web_modules"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"addAndroid",
+			"(?<!\\w)p\\.",
+			"(?<!l)p\\.",
+			"gul",
+			"p\\.",
+			"\\+y",
+			"ctrl\\+alt\\+shift\\+",
+			"ctrl\\+alt\\+shift\\+j",
+			"ctrl+alt",
+			"key",
+			"\\+j",
+			"\\+b",
+			"+b",
+			"here",
+			"console",
+			");\n",
+			"toString",
+			"through2",
+			"gulp.src",
+			"wipe",
+			"exec",
+			"android-compile",
+			"testexec",
+			"fs",
+			"plugin",
+			"plugins !==",
+			"&& !!plugins",
+			"showLongCenter",
+			"handleReturnedACWData",
+			"overrideFormSubmit",
+			"POST",
+			"POST “|| “post",
+			"plugins",
+			"overrideLinks",
+			"\\s\\s\\slog|cl",
+			"\\s\\slog|cl",
+			"(!>=\\s\\s?\\s?\\/)log|cl",
+			"log|cl",
+			"aHrefTriggeredGetReq",
+			"aHrefTri",
+			"ahrefTrigg",
+			"aHrefTriggeredGetReq",
+			"Bullet",
+			"\\}\\([^\\)]?+\\)",
+			"\\}\\([^\\)]?+\\)[^\\)].",
+			"\\}\\([^)]+",
+			"\\}\\([^\\)]+\\)",
+			"\\}\\([^\\)]\\)([^\\)])",
+			"\\}\\([^\\)]\\)([^\\)]|\\;)",
+			"\\}\\(\\)",
+			"\\}\\(.?\\)",
+			"\\}\\(.*?\\)",
+			"\\}\\(\\.",
+			"\\}\\(\\.*?\\)",
+			"\\}\\(\\.*\\)",
+			"assert",
+			"\\}\\(\\.*\\)",
+			"backstack",
+			"\\}\\(\\.*\\)",
+			"\\{\\(\\.*)",
+			"\\{\\(\\)",
+			"{()",
+			"\\}\\s?\\([a-zA-Z0-9]*\\)[^)](?!\\))",
+			"\\}\\s?\\([a-zA-Z0-9)]*\\)[^)](?!\\))",
+			"\\}\\s?\\([a-zA-Z0-9)]*\\)[^\\)](?!\\))",
+			"\\}\\s?\\(.*\\)[^\\)](?!\\))",
+			"\\}\\s?\\(.*\\)+(?!\\))",
+			"\\}\\s?\\(.[^\\)]",
+			"\\}\\s?\\(.[^\\)]+(?!=\\s?\\(.*\\))",
+			"\\}\\s?\\(.[^\\)]+(?!\\s?\\))",
+			"\\}\\s?\\(.+\\)(?!\\s?\\))",
+			"\\}\\s?\\(\\)(?!\\s?\\))",
+			"\\}\\s?\\(\\)(?!\\s?\\)",
+			"babel",
+			"ecm",
+			"function[^\\n]*\\n.*var|for\\s?\\(var",
+			"for\\s?\\(var",
+			"function[^\\n]*\\n.*|for\\s?\\(var",
+			"function[^\\n]*\\n.*var",
+			"function[^\\n]*\\n.*let",
+			"(?<=\\s{4}\\n)var",
+			"(?<!\\s)var",
+			"(?<=\\s)*var",
+			"(?<=function)*var",
+			"(?<=.\\s)var",
+			"(?<=\\s)var",
+			"(?<!\\s)var",
+			"(?<!\\s{1,10})var",
+			"(?<!a)var",
+			"var(?<!a)",
+			"var(?>!a)",
+			"var(?>=a)",
+			"var(?>a)",
+			"var(?=\\s)",
+			"var(?<=\\s)",
+			"var(?<=\\sa)",
+			"var(?<=a\\s)",
+			"var(?<=a[\\s])",
+			"var(?<=a[^])",
+			"var(?<=a[^\\n\\s\\t\\r])",
+			"var(?<=a[^\\n\\s\\t])",
+			"var(?<=a[^\\n\\S])",
+			"var(?<=a[^\\n\\s\\S])",
+			"var(?<=a[^\\n\\s])",
+			"var(?<=a[^\\n])",
+			"(?<=a[^\\n])var",
+			"var(?<=a[^\\n])",
+			"var(?<=[^\\n])",
+			"(?<=[^\\s\\S])var",
+			"(?<=[^\\s\\S]{1})var",
+			"(?<=function)var",
+			"(?<=function[^\\n])var",
+			"(?<=[^\\n])var",
+			"(?<=[^\\n]*)var",
+			"(?<=[^\\s\\S]*)var",
+			"(?<=\\s\\S)var",
+			"(?<=[\\s\\S])var",
+			"(?<=[\\s\\S]*function)var",
+			"(?!=[\\s\\S]*function)var",
+			"(?![\\s\\S]*function)var",
+			"(?=[\\s\\S]*function)var",
+			"(?=.*\\n.*(function).)var",
+			"(?=.*\\n.*.*function)var",
+			"(?=.*\\n.*function)var",
+			"(?=.*\\n.*)var",
+			"(?=\\n.*)var",
+			"(?=.*a)var",
+			"(?=\\n.*)var"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"\\t\\/\\*DEBUG\\}\\}>\\*\\/",
+			"\\t/*<{{DEBUG*/",
+			"",
+			"function navdrawer_",
+			"p.size ))",
+			"args.casper",
+			"args.runOnce",
+			"args.stats",
+			"args.production",
+			"_copy-static",
+			"__compiler",
+			"compiler"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 133.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/JSHint/JSHint.sublime-build",
+	"project": "lodash-superstring.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 452.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 175.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
