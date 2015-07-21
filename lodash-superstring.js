@@ -9,36 +9,36 @@
 /**
  * UMD exporter
  */
-(function (root, factory) {
-   'use strict';
-
-   var lodash = lodash || _ || {};
+(function(root, factory) {
+    'use strict';
 
     // AMD (register as an anonymous module);
     if (typeof define === 'function' && define.amd) {
         // Makes global for when loaded scripts seek 1 despite use of AMD loader
-        define(['b'], function (b) {
+        define(['b'], function(b) {
             return (root._ = factory());
         });
 
-    // Node.
+        // Node.
     } else if (typeof exports === 'object') {
         module.exports = factory(require('b'));
 
-    // Browser globals (where root is the global 'window' object)
+        // Browser globals (where root is the global 'window' object)
     } else {
         root._ = factory();
     }
 
-/**
- * Module begins
- * @return {Object} lodash object (_) with
- */
-}(this, function lodashSuperstring(){
+    /**
+     * Module begins
+     * @return {Object} lodash object (_) with
+     */
+}(this, function lodashSuperstring() {
     'use strict';
 
+    var lodash = lodash || _ || {};
+
     //Ensure lodash is loaded, return if it's not.
-    if (typeof _ === 'undefined' || !_ || !_.mixin){
+    if (typeof _ === 'undefined' || !_ || !_.mixin) {
         console.log('no lodash!');
         return {};
     }
@@ -62,11 +62,11 @@
          * @param {String|Array} 'raw' uri
          * @returns {String}
          */
-        convertTextToURI: function(coll){
-            if (_.isString(coll)){
+        convertTextToURI: function(coll) {
+            if (_.isString(coll)) {
                 return _.unescape(coll).replace(/\ /g, "");
-            } else if (_.isArray(coll)){
-                return _.reduce(coll, function(output, item){
+            } else if (_.isArray(coll)) {
+                return _.reduce(coll, function(output, item) {
                     return output + _.unescape(item).replace(/\ /g, "");
                 });
             }
@@ -74,7 +74,7 @@
 
 
         /**
-         * @function move                [[TESTED: ARRAYS]]
+         * @function swapByIndex                [[TESTED: ARRAYS]]
          * Move item from one location in an array to another, without overwriting
          * or erasing any values.
          *
@@ -88,13 +88,61 @@
          *
          * @returns {Array} collection with the item moved to its new index
          */
-        move: function (arr, fromIndex, toIndex) {
+        swapByIndex: function (arr, fromIndex, toIndex) {
             if (_.isArray(arr)) {
                 arr.splice(toIndex, 0, arr.splice(fromIndex, 1)[0] );
             }
             return arr;
         },
 
+        /**
+         * @function moveToIndex
+         *
+         * Move item from one location in an array to another, without overwriting
+         * or erasing any values.
+         *
+         * @example var swapTestArr = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7'];
+         *          _.moveToIndex(swapTestArr, 2, 5));
+         *            --> [i1,i2,i4,i5,i6,i3,i7]
+         *
+         * @param {Array|String} collection - recipient of the operation
+         * @param {Number} fromIndex - index to move the value from
+         * @param {Number} toIndex - index to move the value to
+         * @param {Boolean} doMutate - if true, mutate collection; otherwise return a new 1. .
+         * @param {Boolean} literalIndices - if true, indices start at 1 rather than 0.
+         *
+         * @returns {Array|String} collection with the item moved to its new index
+         */
+        moveToIndex: function(collection, fromIndex, toIndex, doMutate) {
+            var coll;
+            var wasString;
+
+            if (!collection) {
+                console.log("_.swapByIndex: array or string must be passed to function");
+                return false;
+            }
+
+            if (!doMutate) coll = _.clone(collection);
+            else coll = collection;
+
+            if (typeof collection === 'string'){
+                wasString = true;
+                coll = collection.split("");
+            }
+
+            if (coll.length <= toIndex || coll.length <= fromIndex ||
+                toIndex < 0 || fromIndex < 0) {
+                console.log("_.swapByIndex: invalid indices: out of array bounds.");
+                return coll;
+            }
+
+            if (_.isString(coll)) coll.split("");
+
+            if (_.isArray(coll)) coll.splice(toIndex, 0, coll.splice(fromIndex, 1)[0]);
+            if (_.isString(collection)) coll.join(",");
+
+            return (!!wasString) ? coll.join("") : coll;
+        },
 
         /**
          * @function _.replaceStrOnMatch            [[TESTED: STRINGS, ARRAYS]]
@@ -117,8 +165,8 @@
          *
          * @returns {String|Array} collection following the replacement
          */
-        replaceStrOnMatch: function(coll, matcher, to, from){
-            if (typeof from === 'undefined'){
+        replaceStrOnMatch: function(coll, matcher, to, from) {
+            if (typeof from === 'undefined') {
                 from = matcher;
             }
             if (_.isString(coll)) {
@@ -131,10 +179,10 @@
                 }
             }
             if (_.isArray(coll)) {
-                return _.map(coll, function(val){
+                return _.map(coll, function(val) {
                     return ((val.toString().match(matcher) !== -1) ?
-                            val.toString().replace(((from) ? from : matcher), to) :
-                                val.toString());
+                        val.toString().replace(((from) ? from : matcher), to) :
+                        val.toString());
                 });
             }
         },
@@ -145,11 +193,11 @@
          * [[REQUIRES TESTING]
          * Remove any array items ending in a given string {CHAINABLE}
          */
-        rmEndStrOnMatchEach: function(array, endString){
+        rmEndStrOnMatchEach: function(array, endString) {
             return _.filter(array, function(v) {
                 return ((_.takeRight(v,
                         _.size(endString)).join("") === endString) ?
-                                false : v);
+                    false : v);
             })
         },
 
@@ -168,7 +216,7 @@
          *
          * @returns {String||Array} with the character removed
          */
-        rmEndCharOnMatchEach: function(coll, char){
+        rmEndCharOnMatchEach: function(coll, char) {
             if (_.isArray(coll)) {
                 if ((_.last(_.last(coll))) === char) {
                     var retColl = _.initial(coll);
@@ -192,8 +240,8 @@
          * @param coll {String|Array} collection to remove the "&" from
          * @returns collection with the "&" removed
          */
-        rmEndAmpersand: function(coll){
-            if (_.isArray(coll) || _.isString(coll)){
+        rmEndAmpersand: function(coll) {
+            if (_.isArray(coll) || _.isString(coll)) {
                 return _.rmEndCharOnMatch(coll, "&");
             } else {
                 return coll;
@@ -210,8 +258,8 @@
          * @param coll {String|Array} collection to remove the ";" from
          * @returns collection with the ";" removed
          */
-        rmEndSemicolon: function(coll){
-            if (_.isArray(coll) || _.isString(coll)){
+        rmEndSemicolon: function(coll) {
+            if (_.isArray(coll) || _.isString(coll)) {
                 return _.rmEndCharOnMatch(coll, ';').join('');
             } else {
                 return coll;
@@ -227,7 +275,7 @@
          * @param coll {String|Array} string or array of strings to unescape
          * @returns {String|Array} unescaped string or array of strings
          */
-        unescape: function(coll){
+        unescape: function(coll) {
             if (typeof decodeURI !== 'undefined') {
                 return (decodeURI(coll));
             } else {
@@ -249,7 +297,7 @@
          * @param itemToIns {String} item to add to the start of the collection
          * @return {Array|String} collection with item added to the start
          */
-        unshift: function(coll, itemToIns){
+        unshift: function(coll, itemToIns) {
             if (typeof itemToIns !== 'undefined') {
                 if (_.isArray(coll)) {
                     coll.unshift(itemToIns);
@@ -273,10 +321,10 @@
          * @param matcher {String|RegExp}
          * @param itemToIns {String} Item to potentially insert at arr start
          */
-        unshiftRmMatchedItemOnMatch: function(arr, matcher, itemToIns){
-            var rmArr = _.remove(arr, function(v){
+        unshiftRmMatchedItemOnMatch: function(arr, matcher, itemToIns) {
+            var rmArr = _.remove(arr, function(v) {
                 return (v.match(matcher)) ?
-                        true : false;
+                    true : false;
             });
             if (_.size(rmArr) > 0) {
                 _.without(arr.unshift(itemToIns), rmArr);
