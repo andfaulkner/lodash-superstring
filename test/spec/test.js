@@ -171,6 +171,15 @@
             expect(_.swapByIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 0, 5, true))
             		.toEqual(['i5', 'i1', 'i2', 'i3', 'i4', 'i0']);
         });
+
+        it("should work the same way whether given index 1 >, or < given index 2", function() {
+            expect(_.swapByIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 5, 2, true))
+            		.toEqual(['i0', 'i1', 'i5', 'i3', 'i4', 'i2']);
+            expect(_.swapByIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 5, 0, true))
+            		.toEqual(['i5', 'i1', 'i2', 'i3', 'i4', 'i0']);
+            expect(_.swapByIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 5, 2, true))
+            		.toEqual(_.swapByIndex(['i0', 'i1', 'i2', 'i3', 'i4', 'i5'], 2, 5, true));
+        });
        	//TODO: EDGE CASES
 
 	});
