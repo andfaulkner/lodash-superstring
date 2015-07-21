@@ -1,6 +1,7 @@
 var gulp = require("gulp");
 var uglify = require("gulp-uglify");
 var rename = require("gulp-rename");
+var wrapUMD = require("gulp-wrap-umd");
 
 gulp.task("minify", function(){
     return gulp.src("lodash-superstring.js")
@@ -9,6 +10,13 @@ gulp.task("minify", function(){
         .pipe(gulp.dest("./"));
 });
 
-gulp.task("watch", function(){
-
-})
+gulp.task("umd", function(){
+	gulp.src(['lodash-superstring.js'])
+		.pipe(wrapUMD({
+			namespace: '_',
+			deps: [
+				{ name: 'lodash', globalName: '_', amdName: '../lodash' }
+			]
+		}))
+		.pipe(gulp.dest('dest/'));
+});

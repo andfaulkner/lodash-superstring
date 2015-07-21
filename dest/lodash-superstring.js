@@ -1,47 +1,25 @@
-/**
+
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(["../lodash"], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require('lodash'));
+  } else {
+    root._ = factory(root._);
+  }
+}(this, function(lodash) {
+
+return /**
  * Lodash mixins for advanced string handling and parsing
  * [[[ WORK IN PROGRESS ]]]
  *
  * @author Andrew Faulkner  <andfaulkner@gmail.com>\
  * @license Apache 2.0
  */
-
-/**
- * UMD exporter
- */
-var _ = (function (root, factory) {
-   'use strict';
-
-   var lodash = lodash || _ || {};
-
-    // AMD (register as an anonymous module);
-    if (typeof define === 'function' && define.amd) {
-        // Makes global for when loaded scripts seek 1 despite use of AMD loader
-        define(['b'], function (b) {
-            return (root._ = factory());
-        });
-
-    // Node.
-    } else if (typeof exports === 'object') {
-        module.exports = factory(require('b'));
-
-    // Browser globals (where root is the global 'window' object)
-    } else {
-        root._ = factory();
-    }
-
-/**
- * Module begins
- * @return {Object} lodash object (_) with
- */
-}(this, function lodashSuperstring(){
+(function lodashSuperstring(_){
     'use strict';
 
-    //Ensure lodash is loaded, return if it's not.
-    if (typeof _ === 'undefined' || !_ || !_.mixin){
-        console.log('no lodash!');
-        return {};
-    }
+    if (_ === {})
 
     _.mixin({
 
@@ -287,8 +265,9 @@ var _ = (function (root, factory) {
 
     });
 
-    lodash = _;
-
     return _;
+
+}((typeof _ === 'undefined') ? false : _));
+;
 
 }));
