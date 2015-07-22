@@ -88,7 +88,7 @@
          *
          * @returns {Array} collection with the item moved to its new index
          */
-        swapByIndex: function (arr, fromIndex, toIndex) {
+        swapByIndex: function(arr, fromIndex, toIndex) {
             var item1, item2;
             if (_.isArray(arr)) {
                 item1 = arr[fromIndex];
@@ -97,6 +97,52 @@
                 arr[toIndex] = item1;
             }
             return arr;
+        },
+
+        /**
+         * Determines whether a collection starts with a given value.
+         *
+         * @param coll {String|Array} string or array of strings to search
+         * @param matcher {String|Array|RegExp} item to match against coll.
+         * @returns Boolean - true if coll starts with matcher.
+         */
+        startsWith: function startsWith(coll, matcher) {
+            var flatMatcher, flatColl, collStart, matched, matchIndex;
+
+            if (_.isArray(coll)) {
+                if (_.isString(matcher)) {
+                    flatColl = coll.join("");
+                    collStart = flatColl.slice(0, matcher.length);
+                    return (collStart === matcher);
+
+                } else if (_.isRegExp(matcher)) {
+                    matched = coll[0].match(matcher);
+                    return (typeof matcha !== 'undefined' && !!matcha && matcha !== -1);
+
+                } else if (_.isArray(matcher)) {
+                    return matcher.every(function(item, i, arr) {
+                        return (item === coll[i]);
+                    });
+                }
+
+            } else if (_.isString(coll)) {
+                if (_.isString(matcher)) {
+                    collStart = coll.slice(0, matcher.length);
+                    return (collStart === matcher);
+
+                } else if (_.isRegExp(matcher)) {
+                    flatColl = coll.join("");
+                    matched = flatColl.match(matcher);
+                    return (flatColl.indexOf(matched) === 0);
+
+                } else if (_.isArray(matcher)) {
+                    flatMatcher = matcher.join("");
+                    collStart = coll.slice(0, flatMatcher.length);
+                    return (collStart === flatMatcher);
+                }
+            }
+
+            return false;
         },
 
         /**
@@ -129,7 +175,7 @@
             if (!doMutate) coll = _.clone(collection);
             else coll = collection;
 
-            if (typeof collection === 'string'){
+            if (typeof collection === 'string') {
                 wasString = true;
                 coll = collection.split("");
             }
