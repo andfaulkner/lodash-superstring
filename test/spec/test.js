@@ -297,12 +297,49 @@
     });
 
     describe("lodash-superstring: _.rmEndAmpersand", function() {
-        //TODO: set up tests
+        it("- should remove an ampersand from the end of a string", function(){
+        	expect(_.rmEndAmpersand("hello&")).toBe("hello");
+        	expect(_.rmEndAmpersand("hello hello!&")).toBe("hello hello!");
+        	expect(_.rmEndAmpersand("324&")).toBe("324");
+        });
+
+        it("- shouldn't rm any char from the end of a str that's not am ampersand", function(){
+        	expect(_.rmEndAmpersand("hello")).toBe("hello");
+        	expect(_.rmEndAmpersand("hello hello!")).toBe("hello hello!");
+        	expect(_.rmEndAmpersand("guge%")).toBe("guge%");
+        });
+
+        it("- shouldn't rm an ampersand from anywhere in a str but the end", function(){
+        	expect(_.rmEndAmpersand("he&llo")).toBe("he&llo");
+        	expect(_.rmEndAmpersand("hello&&hello!")).toBe("hello&&hello!");
+        	expect(_.rmEndAmpersand("gu&ge%&")).toBe("gu&ge%");
+        	expect(_.rmEndAmpersand("&42&")).toBe("&42");
+        });
+
     });
 
     describe("lodash-superstring: _.rmEndSemicolon", function() {
-        //TODO: set up tests
+        it("- should remove a semicolon at the end of a string", function(){
+        	expect(_.rmEndSemicolon("hello;")).toBe("hello");
+        	expect(_.rmEndSemicolon("hello hello!;")).toBe("hello hello!");
+        	expect(_.rmEndSemicolon("324;")).toBe("324");
+        });
+
+        it("- should not rm any char from the end of a str that's not a semicolon", function(){
+        	expect(_.rmEndSemicolon("hello")).toBe("hello");
+        	expect(_.rmEndSemicolon("hello hello!")).toBe("hello hello!");
+        	expect(_.rmEndSemicolon("guge%")).toBe("guge%");
+        });
+
+        it("- should not rm a semicolon from anywhere in a str but the end", function(){
+        	expect(_.rmEndSemicolon("he;llo")).toBe("he;llo");
+        	expect(_.rmEndSemicolon("hello;;hello!")).toBe("hello;;hello!");
+        	expect(_.rmEndSemicolon("gu;ge%;")).toBe("gu;ge%");
+        	expect(_.rmEndSemicolon(";42;")).toBe(";42");
+        });
+
     });
+
 
     describe("lodash-superstring: _.unescape", function() {
         //TODO: set up tests

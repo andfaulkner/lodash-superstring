@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-jasmine-livereload-task": "^0.7.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.2.0",
     "gulp-wrap-umd": "^0.2.1",

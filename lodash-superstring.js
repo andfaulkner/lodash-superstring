@@ -310,10 +310,12 @@
          */
         rmEndAmpersand: function(coll) {
             if (_.isArray(coll) || _.isString(coll)) {
-                return _.rmEndCharOnMatch(coll, "&");
-            } else {
-                return coll;
-            }
+                if (_.last(coll) === "&") {
+                    return (_.initial(coll).join(""));
+                }
+//                return _.rmEndStrOnMatchEach(coll, "&").join("");
+            } 
+            return coll;
         },
 
 
@@ -328,10 +330,12 @@
          */
         rmEndSemicolon: function(coll) {
             if (_.isArray(coll) || _.isString(coll)) {
-                return _.rmEndCharOnMatch(coll, ';').join('');
-            } else {
-                return coll;
+                if (_.last(coll) === ";") {
+                    return (_.initial(coll).join(""));
+                }
+                // return _.rmEndStrOnMatchEach(coll, ';').join('');
             }
+            return coll;
         },
 
 
