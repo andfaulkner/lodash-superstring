@@ -106,34 +106,52 @@
          * @param matcher {String|Array|RegExp} item to match against coll.
          * @returns Boolean - true if coll starts with matcher.
          */
-        startsWith: function startsWith(coll, matcher) {
-            var flatMatcher, flatColl, collStart, matched, matchIndex;
+        startsWith: function startsWith(coll, matcher, strict, onDebug) {
+            var flatMatcher, flatColl, collStart, matched, matchIndex, matchOne;
+
+            //if coll & matcher both = "", return true; if not strict (else false)
+            if (coll === "" && matcher === "") return (!!strict);
+
+            //thorough test for valid input
+            if (typeof coll === 'undefined' || typeof matcher === 'undefined' ||
+                    coll === "" || matcher === "" || !coll || !matcher ||
+                    (coll.length === 1 && coll[0] === "") ||
+                    (matcher.length === 1 && matcher[0] === "")){
+                if (!!strict) {
+                    throw "_.startsWith function received invalid input." +
+                        "  coll: " + coll + "; matcher: " + matcher;
+                }
+                return false;
+            }
 
             if (_.isArray(coll)) {
+
                 if (_.isString(matcher)) {
                     flatColl = coll.join("");
                     collStart = flatColl.slice(0, matcher.length);
                     return (collStart === matcher);
 
                 } else if (_.isRegExp(matcher)) {
-                    matched = coll[0].match(matcher);
-                    return (typeof matcha !== 'undefined' && !!matcha && matcha !== -1);
+                    matched = coll.join("").match(matcher);
+                    return (typeof matched !== 'undefined' && !!matched && matched !== -1);
 
                 } else if (_.isArray(matcher)) {
+                    /*_*/ if (onDebug) alert("here: coll = arr, matcher = arr");
                     return matcher.every(function(item, i, arr) {
                         return (item === coll[i]);
                     });
                 }
 
             } else if (_.isString(coll)) {
+
                 if (_.isString(matcher)) {
                     collStart = coll.slice(0, matcher.length);
                     return (collStart === matcher);
 
                 } else if (_.isRegExp(matcher)) {
-                    flatColl = coll.join("");
-                    matched = flatColl.match(matcher);
-                    return (flatColl.indexOf(matched) === 0);
+                    matched = coll.match(matcher);
+                    matchOne = !!matched ? matched[0] : false;
+                    return (coll.indexOf(matchOne) === 0);
 
                 } else if (_.isArray(matcher)) {
                     flatMatcher = matcher.join("");
