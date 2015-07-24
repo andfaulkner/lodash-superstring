@@ -1,29 +1,63 @@
 # lodash-superstring
 Set of plugins for complex string handling - particularly useful for parsing urls with a large number of query parameters
 
+
 #Work-in-progress
+
 
 ###replaceStrInMatchedItem(collection, matcher, to[, from])
 Replace string (parameter 'from') of any collection ('coll') item triggering
 given regular expression or string ('matcher'). If no 'from' param provided,
 it replaces whatever was matched by param 'matcher' with string param 'to'.
 {CHAINABLE}
+
 * collection: {String|Array}
 * matcher: {String|RegExp}
 * to: {String}
 * from: {String}
 
-##unescape(collection)
+
+
+##unescape(collection)  	{{{TESTED}}}
 Unescape a string, or each string in an array.
 Handles compatilibity issues: uses decodeURIComponent where possible, falls back on unescape when unavailable. Handles nested arrays - recursively unescapes all strings within each, to an unlimited depth. Ignores non-string items in arrays. Returns "" when given null or undefined.
 {CHAINABLE}
-* collection: {String|Array}
 Examples:
+
+```javascript
 		  _.unescape("%2C51%2C49");
 		  --> ",51,49"
 
 		  _.unescape([54, "%3D%20true&", "42%2C46", { i: "item"} ]);
 		  --> [54, "= true&", "42,46", { i: "item"}]
+```
+
+* collection: {String|Array}
+* returns {Array|String} - whichever type "collection" parameter was.
+
+
+###swapByIndex(array, fromIndex, toIndex) {{{TESTED}}}
+Swap items in an array, between 2 given indices.
+{CHAINABLE}
+
+* array: {Array}
+* fromIndex: {Number}
+* toIndex: {Number}
+
+
+###rmEndAmpersand(collection) {{{TESTED}}}
+Convenience function to remove an ampersand from the end of a string, or from the last item in an array.
+{CHAINABLE}
+
+* collection: {Array|String}
+
+
+###rmEndSemicolon(collection) {{{TESTED}}}
+Convenience function to remove an ampersand from the end of a string, or from the last item in an array.
+{CHAINABLE}
+
+* collection: {Array|String}
+
 
 ###unshift(collection, itemToInsert)
 Add item to the beginning of a string or array.
@@ -31,8 +65,26 @@ Allows for easier lodash chaining, ensures proper type is used for unshift opera
 {CHAINABLE}
 Example:
 
-          _.unshift(['a2', 'a3', 'a4'], 'a1');
-          --> ['a1', 'a2', 'a3', 'a4']
+```javascript
+_.unshift(['a2', 'a3', 'a4'], 'a1');
+	--> ['a1', 'a2', 'a3', 'a4']
+```
+
+##moveToIndex(collection, fromIndex, toIndex, doMutate)  	{{{TESTED}}}
+Move item from one location in an array to another, without overwriting or erasing any values.
+Example:
+
+```javascript
+var swapTestArr = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6', 'i7'];
+_.moveToIndex(swapTestArr, 2, 5));
+	//--> [i1,i2,i4,i5,i6,i3,i7]
+```
+
+* collection: {Array|String} recipient of the operation
+* fromIndex: {Number} index to move the value from
+* toIndex: {Number} index to move the value to
+* doMutate: {Boolean} if true, mutate collection; otherwise return a new one.
+* returns {Array|String} collection with the item moved to its new index
 
 
 ###rmLastCharOnMatch(collection, character)
@@ -47,32 +99,13 @@ Prepares it for use in an http GET request.
 * collection: {String|Array}
 
 
-###swapByIndex(array, fromIndex, toIndex)
-Swap items in an array, between 2 given indices .
-{CHAINABLE}
-* array: {Array}
-* fromIndex: {Number}
-* toIndex: {Number}
-
-
-###rmEndAmpersand(collection)
-Convenience function to remove an ampersand from the end of a string, or from the last item in an array.
-{CHAINABLE}
-* collection: {Array|String}
-
-
-###rmEndSemicolon(collection)
-Convenience function to remove an ampersand from the end of a string, or from the last item in an array.
-{CHAINABLE}
-* collection: {Array|String}
-
-
 ###rmMatchPrependStr(array, matcher, itemToInsert)
-Insert 'itemToInsert' if matcher hits any text in any array item - as the first item in the array. Remove any array item returning a match. The entire item is removed if any text within the item is matched - not just the matching part. * E.g.
+Insert 'itemToInsert' if matcher hits any text in any array item - as the first item in the array. Remove any array item returning a match. The entire item is removed if any text within the item is matched - not just the matching part.
+Example:
 ```javascript
 var moveTestArr = ['i1', 'i2', 'i3', 'i4', 'i5', 'i6'];
-
 newArray = _.unshiftIfMatchAndRm(moveTestArr, "4", "i0");
-// --> ['i0', 'i1', 'i2', 'i3', 'i5', 'i6']
+	// --> ['i0', 'i1', 'i2', 'i3', 'i5', 'i6']
 ```
+
 * Useful for inserting an 'origin' for a relative link (split into an array using _.words) based on the contents of the rest of the link.
