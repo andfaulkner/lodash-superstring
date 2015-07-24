@@ -282,26 +282,6 @@
     });
 
 
-    describe("lodash-superstring: _.replaceStrOnMatch", function() {
-        //TODO: set up tests
-    });
-
-
-    describe("lodash-superstring: _.convertTextToURI", function() {
-        //TODO: set up tests
-    });
-
-
-    describe("lodash-superstring: _.rmEndStrOnMatchEach", function() {
-        //TODO: set up tests
-    });
-
-
-    describe("lodash-superstring: _.rmEndCharOnMatchEach", function() {
-        //TODO: set up tests
-    });
-
-
     describe("lodash-superstring: _.rmEndAmpersand", function() {
         it("- should remove an ampersand from the end of a string", function(){
         	expect(_.rmEndAmpersand("hello&")).toBe("hello");
@@ -392,6 +372,28 @@
                  ]);
         });
     });
+
+
+
+    describe("lodash-superstring: _.replaceStrOnMatch", function() {
+        //TODO: set up tests
+    });
+
+
+    describe("lodash-superstring: _.convertTextToURI", function() {
+        //TODO: set up tests
+    });
+
+
+    describe("lodash-superstring: _.rmEndStrOnMatchEach", function() {
+        //TODO: set up tests
+    });
+
+
+    describe("lodash-superstring: _.rmEndCharOnMatchEach", function() {
+        //TODO: set up tests
+    });
+
 
     describe("lodash-superstring: _.unshift", function() {
         //TODO: set up tests

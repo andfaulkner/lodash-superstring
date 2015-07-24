@@ -313,7 +313,7 @@
                 if (_.last(coll) === "&") {
                     return (_.initial(coll).join(""));
                 }
-//                return _.rmEndStrOnMatchEach(coll, "&").join("");
+                //return _.rmEndStrOnMatchEach(coll, "&").join("");
             }
             return coll;
         },
@@ -340,7 +340,7 @@
 
 
         /**
-         * @function _.unescape     [[TESTED: STRINGS, ARRAYS]]
+         * @function _.unescape  [[TESTED: STRINGS, ARRAYS, NESTED ARRAYS]]
          *
          * Unescape a string, or each string in an array. {CHAINABLE}
          * Handles compatilibity issues: uses decodeURIComponent where
