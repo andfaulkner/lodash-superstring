@@ -350,7 +350,7 @@
          * @returns {String|Array} unescaped string or array of strings
          */
         unescape: function(coll){
-            var decodeMethod;
+            var decodeMethod, escapeArray;
 
             if (typeof coll === undefined){
                 return "";
@@ -362,12 +362,24 @@
                 decodeMethod = unescape;
             }
 
-            if (_.isArray(coll)){
-                return (coll.map(function(item){
-                    return decodeMethod(item);
-                }));
+            if (!(_.isArray(coll))){
+                return (decodeMethod(coll));
             }
-            return (decodeMethod(coll));
+
+            //Handle arrays within the array
+            return (function escapeArray(arr){
+                return (arr.map(function(item){
+                    if (typeof item === "undefined" || !item){
+                        return "";
+                    } else if (typeof item === "string"){
+                        return decodeMethod(item);
+                    } else if (_.isArray(item)){
+                        return escapeArray(item);
+                    } else if (typeof item === "object" || typeof item === "number"){
+                        return item;
+                    }
+                }));
+            }(coll));
         },
 
 

@@ -3,6 +3,8 @@
 
     var testArr;
 
+    var checkObjProperties;
+
 
     /**
      * Constructor for new test arrays (to prevent effects of array mutation)
@@ -36,7 +38,7 @@
      * Check all properties in the array (props) are present in the object (obj), &
      * of the right type (checkObjProperties)
      */
-    var checkObjProperties = function checkObjProperties(obj, props, typeExpected) {
+    checkObjProperties = function checkObjProperties(obj, props, typeExpected) {
         props.forEach(function(prop) {
             expect(obj[prop]).toBeDefined();
             if (typeExpected) {
@@ -219,7 +221,7 @@
           		expect(_.startsWith(["13", "52", "263"], "1")).toBe(true);
           		expect(_.startsWith(["48472"], "48472")).toBe(true);
           		expect(_.startsWith(["om", "nom", "nom"], "omno")).toBe(true);
-         });
+        });
 
         it("- [ARR, ARR] should be false when arr coll searched for a substring " +
            "that coll does not start with (when coll is flattened)", function() {
@@ -284,17 +286,21 @@
         //TODO: set up tests
     });
 
+
     describe("lodash-superstring: _.convertTextToURI", function() {
         //TODO: set up tests
     });
+
 
     describe("lodash-superstring: _.rmEndStrOnMatchEach", function() {
         //TODO: set up tests
     });
 
+
     describe("lodash-superstring: _.rmEndCharOnMatchEach", function() {
         //TODO: set up tests
     });
+
 
     describe("lodash-superstring: _.rmEndAmpersand", function() {
         it("- should remove an ampersand from the end of a string", function(){
@@ -318,6 +324,7 @@
 
     });
 
+
     describe("lodash-superstring: _.rmEndSemicolon", function() {
         it("- should remove a semicolon at the end of a string", function(){
         	expect(_.rmEndSemicolon("hello;")).toBe("hello");
@@ -340,17 +347,49 @@
 
     });
 
+
     describe("lodash-superstring: _.unescape", function() {
         it("- should not change strings requiring no escaping", function(){
             expect(_.unescape("a")).toBe("a");
             expect(_.unescape("rehrhah")).toBe("rehrhah");
             expect(_.unescape("356745jtynjh56h54h")).toBe("356745jtynjh56h54h");
         });
+
         it("- should decode URL component strings of any size", function(){
             expect(_.unescape("?Op=&ClassNm=HomeList&PageName=list-view&Key=&DataDefinitionNum=42%2C46&Find=%20Special%20%3D%20true&SearchForm=&"))
                 .toBe("?Op=&ClassNm=HomeList&PageName=list-view&Key=&DataDefinitionNum=42,46&Find= Special = true&SearchForm=&");
             expect(_.unescape("?Op=&ClassNm=HomeList&PageName=list-view&Key=&DataDefinitionNum=42%2C46&Position=11Find=%20Special%20%3D%20true&SearchForm=&SearchType=&SearchView=&RenderArrayFields=&PromptVals=&SearchFilters=&Visibility=visible&FieldSort=&SortDirection=&Stride=10&OWASP=yWPdUxSlB4s7S4Xl9iUolHc7zfa&MenuSelection=Find.Honorary&reload=false"))
                 .toBe("?Op=&ClassNm=HomeList&PageName=list-view&Key=&DataDefinitionNum=42,46&Position=11Find= Special = true&SearchForm=&SearchType=&SearchView=&RenderArrayFields=&PromptVals=&SearchFilters=&Visibility=visible&FieldSort=&SortDirection=&Stride=10&OWASP=yWPdUxSlB4s7S4Xl9iUolHc7zfa&MenuSelection=Find.Honorary&reload=false");
+        });
+
+        it("- should accept arrays, & leave them unchanged if no escape chars present", function(){
+            expect(_.unescape(['a'])).toEqual(['a']);
+            expect(_.unescape(['agre', "321d"])).toEqual(['agre', "321d"]);
+        });
+
+        it("- should escape all string items with escapable chars in an array", function(){
+            expect(_.unescape(['&Find=%20Special%20%3D%20true&SearchForm=&'])).toEqual(['&Find= Special = true&SearchForm=&']);
+            expect(_.unescape(['&Find=%20Special', "%3D%20true&SearchForm=&"])).toEqual(['&Find= Special', "= true&SearchForm=&"]);
+        });
+
+        it("- should not modify items in an array that are not escapable strings (e.g. objects)", function(){
+            expect(_.unescape(['&Find=%20Special%20%3D%20true&SearchForm=&', { item: "someItem" }])).toEqual(['&Find= Special = true&SearchForm=&', { item: "someItem" }]);
+            expect(_.unescape(['&Find=%20Special', "%3D%20true&SearchForm=&", 543])).toEqual(['&Find= Special', "= true&SearchForm=&", 543]);
+        });
+
+        it("- should recursively escape strings in arrays - i.e. handle nested arrays", function(){
+            expect(_.unescape(['&Find=%20Special', ["%3D%20true&SearchForm=&"]])).toEqual(['&Find= Special', ["= true&SearchForm=&"]]);
+            expect(_.unescape(['&Find=%20', 'Special%20%3D%20true', [54, "%3D%20true&", "42%2C46"], "%2C51%2C49"]))
+                     .toEqual(['&Find= ', 'Special = true', [54, "= true&", "42,46"], ",51,49"]);
+            expect(_.unescape(['&Find=%20', 'Special%20%3D%20true',
+                               [54, "%3D%20true&", "42%2C46"],
+                               "%2C51%2C49",
+                               ["%20", "a%20a", { "stuff": "stuff" }]
+                 ])).toEqual(['&Find= ', 'Special = true',
+                              [54, "= true&", "42,46"],
+                              ",51,49",
+                              [" ", "a a", { "stuff": "stuff" }]
+                 ]);
         });
     });
 
