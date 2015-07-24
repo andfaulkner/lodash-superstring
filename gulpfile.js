@@ -12,7 +12,7 @@ gulp.task("minify", function(){
 });
 
 gulp.task("jasmine", jasmine({
-    files: ['./test/spec/test.js', 
+    files: ['./test/spec/test.js',
     		'./node_modules/lodash/index.js',
     		'./lodash-superstring.js']
 }))

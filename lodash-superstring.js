@@ -343,6 +343,8 @@
          * @function _.unescape     [[TESTED: STRINGS, ARRAYS]]
          *
          * Unescape a string, or each string in an array. {CHAINABLE}
+         * Handles compatilibity issues: uses decodeURIComponent where
+         * possible, falls back on unescape when unavailable.
          *
          * @param coll {String|Array} string or array of strings to unescape
          * @returns {String|Array} unescaped string or array of strings
