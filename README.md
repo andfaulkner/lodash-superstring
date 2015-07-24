@@ -2,7 +2,7 @@
 Set of plugins for complex string handling - particularly useful for parsing urls with a large number of query parameters
 
 
-#Work-in-progress
+#***** Work-in-progress *****
 
 
 ##unescape(collection)  	{{{TESTED}}}
