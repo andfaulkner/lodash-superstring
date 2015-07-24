@@ -396,6 +396,38 @@
 
 
     describe("lodash-superstring: _.unshift", function() {
+        it("- should add a string to the beginning of an array", function(){
+            expect(_.unshift(['b'], "a")).toEqual(['a', 'b']);
+            expect(_.unshift(['b', "c"], 'a')).toEqual(['a', 'b', 'c']);
+        });
+
+        it("- should add an object (even an empty one) to the start of an array", function(){
+            expect(_.unshift(['b'], { "a": "a" })).toEqual([{ "a": "a" }, 'b']);
+            expect(_.unshift(['d'], { })).toEqual([{ }, 'd']);
+        });
+
+        it("- should create an array out of 2 given non-arrays if concat param not set", function(){
+            expect(_.unshift('b', 'a')).toEqual(['a', 'b']);
+            expect(_.unshift('x', { i: "item" })).toEqual([{ i: "item" }, 'x']);
+        });
+
+        it("- should concatenate 2 given strings if concat param set to true", function(){
+            expect(_.unshift('b', 'a', true)).toEqual('ab');
+            expect(_.unshift('x', { i: "item" })).toEqual([{ i: "item" }, 'x']);
+        });
+
+        it("- should throw exception if failSilent param falsy, & 1 null value (or more) given", function(){
+            expect(_.unshift.bind(null, null, null, true, false)).toThrow();
+            expect(_.unshift.bind(null, null, "data", true, false)).toThrow();
+            expect(_.unshift.bind(null, ['data'], null, true, false)).toThrow();
+        });
+
+        it("- should not throw exception because 1 or more of the data params = '' (if failSilent falsy)", function(){
+            expect(_.unshift.bind(null, "", "", true, false)).not.toThrow();
+            expect(_.unshift.bind(null, "", "a", true, false)).not.toThrow();
+            expect(_.unshift.bind(null, ["data"], "", true, false)).not.toThrow();
+        });
+
         //TODO: set up tests
     });
 

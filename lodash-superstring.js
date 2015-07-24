@@ -106,7 +106,7 @@
          * @param matcher {String|Array|RegExp} item to match against coll.
          * @returns Boolean - true if coll starts with matcher.
          */
-        startsWith: function startsWith(coll, matcher, strict, onDebug) {
+        startsWith: function startsWith(coll, matcher, strict) {
             var flatMatcher, flatColl, collStart, matched, matchIndex, matchOne;
 
             //if coll & matcher both = "", return true; if not strict (else false)
@@ -392,22 +392,35 @@
          * @example _.unshift(['a2', 'a3', 'a4'], 'a1');
          *                  --> ['a1', 'a2', 'a3', 'a4']
          *
-         * @param coll {Array|String} collection to add item to the start of
-         * @param itemToIns {String} item to add to the start of the collection
+         * @param coll {ANY} collection to add item to the start of
+         * @param itemToIns {ANY} item to add to the start of the collection;
+         * @param {Boolean} concat - try to concatenate coll & itemToIns into
+         * a string (rather than making an array).
          * @return {Array|String} collection with item added to the start
          */
-        unshift: function(coll, itemToIns) {
-            if (typeof itemToIns !== 'undefined') {
-                if (_.isArray(coll)) {
-                    coll.unshift(itemToIns);
-                } else if (_.isString(coll)) {
-                    coll = itemToIns + coll;
+        unshift: function(col, itemToIns, concat, failSilent) {
+            if (typeof itemToIns !== 'undefined' && typeof col !== 'undefined' &&
+                (itemToIns || itemToIns === "") && (col || col === "")) {
+
+                col = (!!concat && _.isArray(col)) ? col.join("") : col;
+
+                if (_.isArray(col)) {
+                    col.unshift(itemToIns);
+                    return col;
                 }
-                return coll;
-            } else {
-                console.log("_.unshift failed - no item to insert provided");
-                return coll;
+
+                return ((!concat) ?
+                           ([itemToIns, col]) :
+                       (_.isString(col) || _.isNumber(col)) ?
+                           (itemToIns + col) : col);
             }
+
+            if (!failSilent){
+                throw "_.unshift failed - invalid item to insert provided. " +
+                      "Values: col: " + col + "itemToIns: undefined";
+            }
+
+            return col;
         },
 
 

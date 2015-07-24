@@ -5,19 +5,6 @@ Set of plugins for complex string handling - particularly useful for parsing url
 #Work-in-progress
 
 
-###replaceStrInMatchedItem(collection, matcher, to[, from])
-Replace string (parameter 'from') of any collection ('coll') item triggering
-given regular expression or string ('matcher'). If no 'from' param provided,
-it replaces whatever was matched by param 'matcher' with string param 'to'.
-{CHAINABLE}
-
-* collection: {String|Array}
-* matcher: {String|RegExp}
-* to: {String}
-* from: {String}
-
-
-
 ##unescape(collection)  	{{{TESTED}}}
 Unescape a string, or each string in an array.
 Handles compatilibity issues: uses decodeURIComponent where possible, falls back on unescape when unavailable. Handles nested arrays - recursively unescapes all strings within each, to an unlimited depth. Ignores non-string items in arrays. Returns "" when given null or undefined.
@@ -45,14 +32,35 @@ Swap items in an array, between 2 given indices.
 * toIndex: {Number}
 
 
-###rmEndAmpersand(collection) {{{TESTED}}}
+###startsWith 		{{{TESTED}}}
+Determines whether a collection starts with a given value.
+
+* coll {String|Array} string or array of strings to search.
+* matcher {String|Array|RegExp} item to match against coll.
+* strict {Boolean} if true, throw error if function given invalid input.
+* returns: {Boolean} - true if coll starts with matcher.
+
+
+###replaceStrOnMatch(collection, matcher, to[, from]) {{{NEEDS TESTING}}}
+Replace string (param 'from', or param 'matcher' if no param 'from' provided) within any collection ('coll') item triggering given regular expression or string ('matcher') - with another string (param 'to').
+{CHAINABLE}
+
+* collection: {String|Array}
+* matcher: {String|RegExp}
+* to: {String}
+* from: {String}
+
+
+
+
+###rmEndAmpersand(collection) 		{{{TESTED}}}
 Convenience function to remove an ampersand from the end of a string, or from the last item in an array.
 {CHAINABLE}
 
 * collection: {Array|String}
 
 
-###rmEndSemicolon(collection) {{{TESTED}}}
+###rmEndSemicolon(collection) 		{{{TESTED}}}
 Convenience function to remove an ampersand from the end of a string, or from the last item in an array.
 {CHAINABLE}
 
