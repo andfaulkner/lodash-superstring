@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"array",
+				"new Blob(${0:array}, options)	Blob"
+			],
+			[
+				"try",
+				"try catch finally"
+			],
+			[
 				"encodreU",
 				"encodeURIComponent(${0:URI})	Window"
 			],
@@ -59,6 +67,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 751,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test/spec/test.js",
+			"settings":
+			{
+				"buffer_size": 16128,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lodash-superstring.js",
+			"settings":
+			{
+				"buffer_size": 15304,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -67,10 +99,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 327.0,
-		"last_filter": "",
+		"height": 369.0,
+		"last_filter": "Package Control: ",
 		"selected_items":
 		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
 			[
 				"Snippet: ",
 				"Snippet: no_p"
@@ -78,10 +114,6 @@
 			[
 				"Snippet",
 				"Snippet: #!/usr/bin/env"
-			],
-			[
-				"Package Control: ",
-				"Package Control: Install Package"
 			],
 			[
 				"Ja",
@@ -115,8 +147,22 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/home/andfaulkner/Projects/cordova/lodash-superstring",
+		"/home/andfaulkner/Projects/cordova/lodash-superstring/node_modules",
+		"/home/andfaulkner/Projects/cordova/lodash-superstring/test",
+		"/home/andfaulkner/Projects/cordova/lodash-superstring/test/spec"
+	],
 	"file_history":
 	[
+		"/home/andfaulkner/Projects/cordova/lodash-superstring/test/index.html",
+		"/home/andfaulkner/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/andfaulkner/Projects/cordova/lodash-superstring/SpecRunner.html",
+		"/home/andfaulkner/Projects/cordova/lodash-superstring/dest/lodash-superstring.js",
+		"/home/andfaulkner/Projects/cordova/lodash-superstring/lodash-superstring.js",
+		"/home/andfaulkner/Projects/cordova/lodash-superstring/test/spec/test.js",
+		"/home/andfaulkner/Projects/cordova/lodash-superstring/.yo-rc.json",
 		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/websockets/program.js",
 		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/http-client/program.js",
 		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/http-server/program.js",
@@ -126,7 +172,6 @@
 		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/lines/program.js",
 		"/home/andfaulkner/Projects/cordova/learnnode/http-json-api-server/program.js",
 		"/home/andfaulkner/Projects/cordova/learnnode/stream-adventure/meet-pipe/program.js",
-		"/home/andfaulkner/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/andfaulkner/Projects/cordova/gulp-display-help/gulpfile.js",
 		"/home/andfaulkner/.config/sublime-text-3/Packages/User/snippets/REGEX_p_dot_with_no_char_before.sublime-snippet",
 		"/home/andfaulkner/.config/sublime-text-3/Packages/User/snippets/no_p.sublime-snippet",
@@ -200,6 +245,23 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"ctrl\\+shift",
+			"ctrl+shift",
+			"up",
+			"rmEnd",
+			"RMeND",
+			"rmEndCharOnMatch",
+			"isArray\\(arr",
+			"unshiftIfMatchAndRm",
+			"getTestArr",
+			"isString\\(coll",
+			"isString(",
+			"isString(coll",
+			"replaceStrInMatchedItem",
+			"array.splice",
+			"swapBy",
+			"wrap",
+			"undefined",
 			"addAndroid",
 			"(?<!\\w)p\\.",
 			"(?<!l)p\\.",
@@ -310,24 +372,7 @@
 			"var(?<=[^\\n])",
 			"(?<=[^\\s\\S])var",
 			"(?<=[^\\s\\S]{1})var",
-			"(?<=function)var",
-			"(?<=function[^\\n])var",
-			"(?<=[^\\n])var",
-			"(?<=[^\\n]*)var",
-			"(?<=[^\\s\\S]*)var",
-			"(?<=\\s\\S)var",
-			"(?<=[\\s\\S])var",
-			"(?<=[\\s\\S]*function)var",
-			"(?!=[\\s\\S]*function)var",
-			"(?![\\s\\S]*function)var",
-			"(?=[\\s\\S]*function)var",
-			"(?=.*\\n.*(function).)var",
-			"(?=.*\\n.*.*function)var",
-			"(?=.*\\n.*function)var",
-			"(?=.*\\n.*)var",
-			"(?=\\n.*)var",
-			"(?=.*a)var",
-			"(?=\\n.*)var"
+			"(?<=function)var"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -335,6 +380,7 @@
 		"regex": true,
 		"replace_history":
 		[
+			"testArr",
 			"",
 			"\\t\\/\\*DEBUG\\}\\}>\\*\\/",
 			"\\t/*<{{DEBUG*/",
@@ -358,14 +404,102 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 751,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								385,
+								385
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "test/spec/test.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16128,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13446,
+								13446
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4860.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lodash-superstring.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15304,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12814,
+								12814
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5292.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -444,7 +578,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 175.0,
+	"side_bar_width": 222.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

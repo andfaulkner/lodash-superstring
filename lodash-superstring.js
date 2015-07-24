@@ -314,7 +314,7 @@
                     return (_.initial(coll).join(""));
                 }
 //                return _.rmEndStrOnMatchEach(coll, "&").join("");
-            } 
+            }
             return coll;
         },
 
@@ -340,19 +340,32 @@
 
 
         /**
-         * @function _.unescape             [[TESTED: STRINGS, ARRAYS]]
+         * @function _.unescape     [[TESTED: STRINGS, ARRAYS]]
          *
          * Unescape a string, or each string in an array. {CHAINABLE}
          *
          * @param coll {String|Array} string or array of strings to unescape
          * @returns {String|Array} unescaped string or array of strings
          */
-        unescape: function(coll) {
-            if (typeof decodeURI !== 'undefined') {
-                return (decodeURI(coll));
-            } else {
-                return (unescape(coll));
+        unescape: function(coll){
+            var decodeMethod;
+
+            if (typeof coll === undefined){
+                return "";
             }
+
+            if (typeof decodeURIComponent !== 'undefined') {
+                decodeMethod = decodeURIComponent;
+            } else {
+                decodeMethod = unescape;
+            }
+
+            if (_.isArray(coll)){
+                return (coll.map(function(item){
+                    return decodeMethod(item);
+                }));
+            }
+            return (decodeMethod(coll));
         },
 
 

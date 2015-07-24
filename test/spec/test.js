@@ -340,9 +340,18 @@
 
     });
 
-
     describe("lodash-superstring: _.unescape", function() {
-        //TODO: set up tests
+        it("- should not change strings requiring no escaping", function(){
+            expect(_.unescape("a")).toBe("a");
+            expect(_.unescape("rehrhah")).toBe("rehrhah");
+            expect(_.unescape("356745jtynjh56h54h")).toBe("356745jtynjh56h54h");
+        });
+        it("- should decode URL component strings of any size", function(){
+            expect(_.unescape("?Op=&ClassNm=HomeList&PageName=list-view&Key=&DataDefinitionNum=42%2C46&Find=%20Special%20%3D%20true&SearchForm=&"))
+                .toBe("?Op=&ClassNm=HomeList&PageName=list-view&Key=&DataDefinitionNum=42,46&Find= Special = true&SearchForm=&");
+            expect(_.unescape("?Op=&ClassNm=HomeList&PageName=list-view&Key=&DataDefinitionNum=42%2C46&Position=11Find=%20Special%20%3D%20true&SearchForm=&SearchType=&SearchView=&RenderArrayFields=&PromptVals=&SearchFilters=&Visibility=visible&FieldSort=&SortDirection=&Stride=10&OWASP=yWPdUxSlB4s7S4Xl9iUolHc7zfa&MenuSelection=Find.Honorary&reload=false"))
+                .toBe("?Op=&ClassNm=HomeList&PageName=list-view&Key=&DataDefinitionNum=42,46&Position=11Find= Special = true&SearchForm=&SearchType=&SearchView=&RenderArrayFields=&PromptVals=&SearchFilters=&Visibility=visible&FieldSort=&SortDirection=&Stride=10&OWASP=yWPdUxSlB4s7S4Xl9iUolHc7zfa&MenuSelection=Find.Honorary&reload=false");
+        });
     });
 
     describe("lodash-superstring: _.unshift", function() {
