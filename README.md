@@ -23,6 +23,7 @@ Examples:
 * returns {Array|String} - whichever type "collection" parameter was.
 
 
+
 ###swapByIndex(array, fromIndex, toIndex) {{{TESTED}}}
 Swap items in an array, between 2 given indices.
 {CHAINABLE}
@@ -32,6 +33,7 @@ Swap items in an array, between 2 given indices.
 * toIndex: {Number}
 
 
+
 ###startsWith 		{{{TESTED}}}
 Determines whether a collection starts with a given value.
 
@@ -39,6 +41,7 @@ Determines whether a collection starts with a given value.
 * matcher {String|Array|RegExp} item to match against coll.
 * strict {Boolean} if true, throw error if function given invalid input.
 * returns: {Boolean} - true if coll starts with matcher.
+
 
 
 ###replaceStrOnMatch(collection, matcher, to[, from]) {{{NEEDS TESTING}}}
@@ -52,12 +55,12 @@ Replace string (param 'from', or param 'matcher' if no param 'from' provided) wi
 
 
 
-
 ###rmEndAmpersand(collection) 		{{{TESTED}}}
 Convenience function to remove an ampersand from the end of a string, or from the last item in an array.
 {CHAINABLE}
 
 * collection: {Array|String}
+
 
 
 ###rmEndSemicolon(collection) 		{{{TESTED}}}
@@ -67,7 +70,8 @@ Convenience function to remove an ampersand from the end of a string, or from th
 * collection: {Array|String}
 
 
-###unshift(collection, itemToInsert)
+
+###unshift(collection, itemToInsert) 		{{{TESTED}}}
 Add item to the beginning of a string or array.
 Allows for easier lodash chaining, ensures proper type is used for unshift operation
 {CHAINABLE}
@@ -77,6 +81,8 @@ Example:
 _.unshift(['a2', 'a3', 'a4'], 'a1');
 	--> ['a1', 'a2', 'a3', 'a4']
 ```
+
+
 
 ##moveToIndex(collection, fromIndex, toIndex, doMutate)  	{{{TESTED}}}
 Move item from one location in an array to another, without overwriting or erasing any values.
@@ -95,16 +101,19 @@ _.moveToIndex(swapTestArr, 2, 5));
 * returns {Array|String} collection with the item moved to its new index
 
 
+
 ###rmLastCharOnMatch(collection, character)
 If the string or the last item in an array matches given char, remove it.
 * collection: {String|Array}
 * character: {String}
 
 
+
 ###convertTextToURI(collection)
 Unescape an encoded URI in string or array form, then remove spaces from it.
 Prepares it for use in an http GET request.
 * collection: {String|Array}
+
 
 
 ###rmMatchPrependStr(array, matcher, itemToInsert)
